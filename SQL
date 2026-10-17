@@ -1,1 +1,94 @@
-
+create database banking_loan;
+use banking_loan;
+select * from banking_loan_analysis;
+select count(*) as Total_records from banking_loan_analysis;
+select * from banking_loan_analysis limit 20;
+SELECT SUM(Loan_Amount) AS Total_Loan_Amount
+FROM banking_loan_analysis;
+SELECT AVG(Loan_Amount) AS Average_Loan_Amount
+FROM banking_loan_analysis;
+SELECT AVG(Annual_Income) AS Average_Annual_Income
+FROM banking_loan_analysis;
+SELECT AVG(Credit_Score) AS Average_Credit_Score
+FROM banking_loan_analysis;
+SELECT SUM(Deposit_Amount) AS Total_Deposit_Amount
+FROM banking_loan_analysis;
+SELECT AVG(Monthly_EMI) AS Average_Monthly_EMI
+FROM banking_loan_analysis;
+SELECT
+    COUNT(*) AS Total_Records,
+    SUM(Loan_Amount) AS Total_Loan_Amount,
+    AVG(Loan_Amount) AS Average_Loan_Amount,
+    AVG(Annual_Income) AS Average_Annual_Income,
+    AVG(Credit_Score) AS Average_Credit_Score,
+    SUM(Deposit_Amount) AS Total_Deposit_Amount,
+    AVG(Monthly_EMI) AS Average_Monthly_EMI
+FROM banking_loan_analysis;
+SELECT
+    Loan_Status,
+    COUNT(*) AS Loan_Count
+FROM banking_loan_analysis
+GROUP BY Loan_Status
+ORDER BY Loan_Count DESC;
+SELECT
+    Loan_Type,
+    COUNT(*) AS Loan_Count,
+    SUM(Loan_Amount) AS Total_Loan_Amount,
+    AVG(Loan_Amount) AS Average_Loan_Amount
+FROM banking_loan_analysis
+GROUP BY Loan_Type
+ORDER BY Total_Loan_Amount DESC;
+SELECT
+    Employment_Status,
+    COUNT(*) AS Customer_Count,
+    AVG(Annual_Income) AS Average_Income
+FROM banking_loan_analysis
+GROUP BY Employment_Status
+ORDER BY Customer_Count DESC;
+select
+    Region,
+    COUNT(*) AS Customer_Count,
+    SUM(Loan_Amount) AS Total_Loan_Amount
+FROM banking_loan_analysis
+GROUP BY Region
+ORDER BY Customer_Count DESC;
+SELECT
+    City,
+    COUNT(*) AS Customer_Count
+FROM banking_loan_analysis
+GROUP BY City
+ORDER BY Customer_Count DESC;
+select
+    Payment_Mode,
+    COUNT(*) AS Transaction_Count
+FROM banking_loan_analysis
+GROUP BY Payment_Mode
+ORDER BY Transaction_Count DESC;
+SELECT
+    AVG(Credit_Score) AS Average_Credit_Score,
+    MIN(Credit_Score) AS Minimum_Credit_Score,
+    MAX(Credit_Score) AS Maximum_Credit_Score
+FROM banking_loan_analysis;
+SELECT
+    Loan_Status,
+    COUNT(*) AS Customer_Count,
+    AVG(Credit_Score) AS Average_Credit_Score
+FROM banking_loan_analysis
+GROUP BY Loan_Status
+ORDER BY Average_Credit_Score DESC;
+SELECT
+    Employment_Status,
+    COUNT(*) AS Loan_Count,
+    SUM(Loan_Amount) AS Total_Loan_Amount,
+    AVG(Loan_Amount) AS Average_Loan_Amount
+FROM banking_loan_analysis
+GROUP BY Employment_Status
+ORDER BY Total_Loan_Amount DESC;
+SELECT
+    Region,
+    Loan_Status,
+    COUNT(*) AS Loan_Count,
+    SUM(Loan_Amount) AS Total_Loan_Amount
+FROM banking_loan_analysis
+GROUP BY Region, Loan_Status
+ORDER BY Region, Loan_Status;
